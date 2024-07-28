@@ -5,7 +5,7 @@ import axios from "axios";
 import Spinner from "./Spinner";
 
 const withAuth = (WrappedComponent) => {
-  return (props) => {
+  const ComponentWithAuth = (props) => {
     const router = useRouter();
     const [authData, setAuthData] = useState(null);
 
@@ -53,6 +53,16 @@ const withAuth = (WrappedComponent) => {
 
     return <WrappedComponent {...props} authData={authData} />;
   };
+
+  ComponentWithAuth.displayName = `WithAuth(${getDisplayName(
+    WrappedComponent
+  )})`;
+
+  return ComponentWithAuth;
+};
+
+const getDisplayName = (WrappedComponent) => {
+  return WrappedComponent.displayName || WrappedComponent.name || "Component";
 };
 
 export default withAuth;
