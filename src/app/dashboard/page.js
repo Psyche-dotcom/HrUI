@@ -13,7 +13,11 @@ const Dashboard = ({ authData }) => {
     <div className="min-h-screen ">
       <MenuBar />
       <div className="w-11/12 md:w-10/12 mx-auto">
-        <StaffCRUD start={formattedStartDate} end={formattedEndDate} />
+        <StaffCRUD
+          companyName={authData.companyName}
+          start={formattedStartDate}
+          end={formattedEndDate}
+        />
       </div>
     </div>
   );

@@ -1,10 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
+import Spinner from "../../components/Spinner";
 
-const ConfirmPayment = ({ session_id }) => {
+const ConfirmPayment = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const session_id = searchParams.get("session_id");
   const [status, setStatus] = useState(null);
   const [message, setMessage] = useState("");
 
@@ -14,9 +18,10 @@ const ConfirmPayment = ({ session_id }) => {
 
       try {
         const token = localStorage.getItem("token");
+        console.log(token);
         const response = await axios.post(
           `https://hrportalmiddleware.onrender.com/api/payment/webhook/confirm-payment/stripe?session_id=${session_id}`,
-
+          {},
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -46,9 +51,9 @@ const ConfirmPayment = ({ session_id }) => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen">
       {status === null ? (
-        <div>Loading...</div>
+        <Spinner />
       ) : (
         <div className="flex flex-col items-center bg-white p-6 rounded shadow-lg">
           {status === "success" ? (

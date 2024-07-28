@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Spinner from "./Spinner";
 
 const SingleStaffView = ({ id }) => {
   const router = useRouter();
@@ -50,13 +51,13 @@ const SingleStaffView = ({ id }) => {
     }
   };
 
-  if (!staffDetails) return <p>Loading...</p>;
+  if (!staffDetails) return <Spinner />;
 
   return (
     <div className="p-4 max-w-4xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {Object.entries(staffDetails).map(([key, value]) => {
-          if (key === "employeePhoto") return null; // Skip employeePhoto
+          if (key === "employeePhoto") return null;
           return (
             <div key={key} className="flex flex-col">
               <span className="font-semibold text-gray-700 capitalize">

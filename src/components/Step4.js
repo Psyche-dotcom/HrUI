@@ -15,9 +15,10 @@ const Step4 = ({ data, handleChange }) => (
       label="End Date"
       name="endDate"
       type="date"
-      value={data.endDate.split("T")[0]}
+      value={data.endDate?.split("T")[0] ?? ""}
       onChange={handleChange}
     />
+
     <TextInput
       label="Work Location"
       name="workLocation"
@@ -27,6 +28,7 @@ const Step4 = ({ data, handleChange }) => (
     <TextInput
       label="Notes"
       name="notes"
+      multiline={true}
       value={data.notes}
       onChange={handleChange}
     />

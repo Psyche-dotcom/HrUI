@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-const StaffCRUD = ({ start, end }) => {
+const StaffCRUD = ({ start, end, companyName }) => {
   const [staffData, setStaffData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -67,6 +67,7 @@ const StaffCRUD = ({ start, end }) => {
   return (
     <div className="p-4">
       <div className="flex  justify-between mb-6">
+        <h1 className="text-3xl text-center text-white">{companyName}</h1>
         <div className="text-white">
           <p>
             <span className="font-bold">Subscrption Start Date :</span> {start}
