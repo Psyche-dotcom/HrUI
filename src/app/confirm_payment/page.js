@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
 import Spinner from "../../components/Spinner";
@@ -109,4 +109,10 @@ const ConfirmPayment = () => {
   );
 };
 
-export default ConfirmPayment;
+const ConfirmPaymentWrapper = () => (
+  <Suspense fallback={<Spinner />}>
+    <ConfirmPayment />
+  </Suspense>
+);
+
+export default ConfirmPaymentWrapper;
