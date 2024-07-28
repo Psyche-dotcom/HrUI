@@ -53,7 +53,7 @@ export default function ForgetPassword() {
           </button>
         </form>
         <div className="text-center text-sm">
-          <a href="/login" className="text-blue-600 hover:underline">
+          <a href="/" className="text-blue-600 hover:underline">
             Remembered your password? Login
           </a>
         </div>

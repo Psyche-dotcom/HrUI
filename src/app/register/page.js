@@ -33,7 +33,7 @@ export default function Register() {
     const data = await response.json();
     if (data.statusCode === 200) {
       alert("Registration successful. Please login.");
-      router.push("/login");
+      router.push("/");
     } else {
       alert(data.displayMessage);
     }
@@ -112,7 +112,7 @@ export default function Register() {
           </button>
         </form>
         <div className="text-center text-sm">
-          <a href="/login" className="text-blue-600 hover:underline">
+          <a href="/" className="text-blue-600 hover:underline">
             Already have an account? Login
           </a>
         </div>

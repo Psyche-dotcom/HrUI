@@ -30,7 +30,7 @@ export default function ResetPassword() {
     const data = await response.json();
     if (data.statusCode === 200) {
       alert("Password reset successful. Please login.");
-      router.push("/login");
+      router.push("/");
     } else {
       alert(data.displayMessage);
     }
@@ -85,7 +85,7 @@ export default function ResetPassword() {
           </button>
         </form>
         <div className="text-center text-sm">
-          <a href="/login" className="text-blue-600 hover:underline">
+          <a href="/" className="text-blue-600 hover:underline">
             Remembered your password? Login
           </a>
         </div>
