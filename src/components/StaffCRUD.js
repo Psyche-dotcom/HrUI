@@ -63,6 +63,9 @@ const StaffCRUD = ({ start, end, companyName }) => {
   const handleCreate = () => {
     router.push(`/staff/create`);
   };
+  const handleCreateLabout = () => {
+    router.push(`/labour/create`);
+  };
 
   return (
     <div className="p-4">
@@ -76,12 +79,20 @@ const StaffCRUD = ({ start, end, companyName }) => {
             <span className="font-bold">Subscrption End Date :</span> {end}
           </p>
         </div>
-        <button
-          onClick={() => handleCreate()}
-          className="bg-green-500 text-white px-2 py-1 rounded"
-        >
-          Create Staff
-        </button>
+        <div className="flex gap-4 items-center">
+          <button
+            onClick={() => handleCreate()}
+            className="bg-green-500 text-white px-2 py-1 rounded"
+          >
+            Create Staff
+          </button>
+          <button
+            onClick={() => handleCreateLabout()}
+            className="bg-green-500 text-white px-2 py-1 rounded"
+          >
+            Create Labour
+          </button>
+        </div>
       </div>
       <table className="min-w-full bg-white">
         <thead>
