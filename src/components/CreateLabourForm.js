@@ -4,6 +4,8 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import CreateLStep1 from "./CreateLStep1";
 import CreateLStep2 from "./CreateLStep2";
+import ToastLayout from "./ToastLayout";
+import { toast } from "react-toastify";
 
 const CreateLabourForm = () => {
   const router = useRouter();
@@ -49,11 +51,11 @@ const CreateLabourForm = () => {
           },
         }
       );
-      alert("Labour successfully added");
-      router.push("/dashboard");
+      toast.success("Labour successfully added");
+      router.push("/labour");
     } catch (error) {
       console.error("Error creating labour:", error);
-      alert("Error creating labour");
+      toast.error("Error creating labour");
     }
   };
 

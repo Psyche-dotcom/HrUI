@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import axios from "axios";
 import Spinner from "./Spinner";
 import { toast } from "react-toastify";
+import ToastLayout from "./ToastLayout";
 
 const withAuth = (WrappedComponent) => {
   const ComponentWithAuth = (props) => {
@@ -68,7 +69,11 @@ const withAuth = (WrappedComponent) => {
       return <Spinner />;
     }
 
-    return <WrappedComponent {...props} authData={authData} />;
+    return (
+      <ToastLayout>
+        <WrappedComponent {...props} authData={authData} />;
+      </ToastLayout>
+    );
   };
 
   ComponentWithAuth.displayName = `WithAuth(${getDisplayName(

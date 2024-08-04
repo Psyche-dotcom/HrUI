@@ -21,6 +21,7 @@ const EditLaborForm = ({ labourId }) => {
     const token = localStorage.getItem("token");
     const fetchLaborData = async () => {
       try {
+        console.log(labourId);
         const response = await axios.get(
           `https://hrportalmiddleware.onrender.com/api/labour/labour/single?Labourid=${labourId}`,
           {
@@ -30,6 +31,7 @@ const EditLaborForm = ({ labourId }) => {
             },
           }
         );
+        console.log(response);
         setData(response.data.result);
       } catch (error) {
         axios;
@@ -59,7 +61,7 @@ const EditLaborForm = ({ labourId }) => {
         }
       );
       alert("Labor info updated successfully:", response.data.result);
-      router.push("/dashboard"); // Redirect to dashboard after successful update
+      router.push("/labour"); // Redirect to dashboard after successful update
     } catch (error) {
       alert("Error updating labor info:", error);
     }

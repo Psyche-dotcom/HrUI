@@ -13,7 +13,7 @@ const StaffsPage = ({ params }) => {
       </div>
 
       <div className="w-11/12 md:w-10/12 mx-auto ">
-        <div className="max-w-4xl w-full bg-white p-8 rounded-lg shadow-md">
+        <div className="max-w-4xl w-full bg-white p-8 rounded-lg shadow-md mb-8">
           <h1 className="text-2xl font-bold mb-6">Staff Information</h1>
           <SingleStaffView id={params.id} />
         </div>

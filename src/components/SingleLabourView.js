@@ -36,7 +36,7 @@ const SingleLabourView = ({ id }) => {
     let token = localStorage.getItem("token");
     try {
       await axios.delete(
-        `https://hrportalmiddleware.onrender.com/api/labour/labour/delete?Labourid=${id}`,
+        `https://hrportalmiddleware.onrender.com/api/labour/labour/delete?labourid=${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
