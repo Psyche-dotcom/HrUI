@@ -93,7 +93,7 @@ const StaffCRUD = ({ start, end, companyName }) => {
           <tr className="w-full bg-gray-800 text-white">
             <th className="py-2 px-4">Full Name</th>
             <th className="py-2 px-4">Email</th>
-            <th className="py-2 px-4">Job Title</th>
+
             <th className="py-2 px-4">Actions</th>
           </tr>
         </thead>
@@ -102,7 +102,7 @@ const StaffCRUD = ({ start, end, companyName }) => {
             <tr key={staff.id} className="border-b">
               <td className="py-2 px-4 text-center">{staff.fullName}</td>
               <td className="py-2 px-4 text-center">{staff.email}</td>
-              <td className="py-2 px-4 text-center">{staff.jobTitle}</td>
+
               <td className="py-2 px-4 text-center">
                 <button
                   onClick={() => handleView(staff.id)}

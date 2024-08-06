@@ -9,6 +9,14 @@ const CreateStep1 = ({ data, handleChange }) => (
       value={data.fullName}
       onChange={handleChange}
     />
+    <div className="flex gap-4">
+      <TextInput
+        label="Employee Id"
+        name="employeeId"
+        value={data.employeeId}
+        onChange={handleChange}
+      />
+    </div>
     <div className="flex gap-4 w-full">
       <TextInput
         label="Gender"
@@ -35,20 +43,6 @@ const CreateStep1 = ({ data, handleChange }) => (
         name="dateOfBirth"
         type="date"
         value={data.dateOfBirth}
-        onChange={handleChange}
-      />
-    </div>
-    <div className="flex gap-4 w-full">
-      <TextInput
-        label="Social Security Number"
-        name="socialSecurityNumber"
-        value={data.socialSecurityNumber}
-        onChange={handleChange}
-      />
-      <TextInput
-        label="Marital Status"
-        name="maritalStatus"
-        value={data.maritalStatus}
         onChange={handleChange}
       />
     </div>

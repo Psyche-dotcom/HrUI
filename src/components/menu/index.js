@@ -23,6 +23,14 @@ const MenuitemF = () => {
         } text-white font-semibold`}
         link={"/labour"}
       />
+      <NavItem
+        key={1}
+        title={"Create Labour"}
+        className={`${
+          pathname === "/staff/create" && "underline"
+        } text-white font-semibold`}
+        link={"/staff/create"}
+      />
     </div>
   );
 };

@@ -8,6 +8,7 @@ import Step3 from "./Step3";
 import Step4 from "./Step4";
 import { fetchStaffData } from "./fetchStaffData";
 import { useRouter } from "next/navigation";
+import CreateStep1 from "./CreateStep1";
 
 const EditStaffForm = ({ staffId }) => {
   const router = useRouter();
@@ -80,47 +81,17 @@ const EditStaffForm = ({ staffId }) => {
     }
   };
 
-  const nextStep = () => {
-    setStep((prevStep) => prevStep + 1);
-  };
-
-  const prevStep = () => {
-    setStep((prevStep) => prevStep - 1);
-  };
-
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {step === 1 && <Step1 data={data} handleChange={handleChange} />}
-      {step === 2 && <Step2 data={data} handleChange={handleChange} />}
-      {step === 3 && <Step3 data={data} handleChange={handleChange} />}
-      {step === 4 && <Step4 data={data} handleChange={handleChange} />}{" "}
+      <CreateStep1 data={data} handleChange={handleChange} />
+
       <div className="flex justify-between">
-        {step > 1 && (
-          <button
-            type="button"
-            onClick={prevStep}
-            className="py-2 px-4 bg-gray-500 text-white rounded-md"
-          >
-            Previous
-          </button>
-        )}
-        {step < 4 && (
-          <button
-            type="button"
-            onClick={nextStep}
-            className="py-2 px-4 bg-blue-500 text-white rounded-md"
-          >
-            Next
-          </button>
-        )}
-        {step === 4 && (
-          <button
-            type="submit"
-            className="py-2 px-4 bg-green-500 text-white rounded-md"
-          >
-            Submit
-          </button>
-        )}
+        <button
+          type="submit"
+          className="py-2 px-4 bg-green-500 text-white rounded-md"
+        >
+          Submit
+        </button>
       </div>
     </form>
   );
